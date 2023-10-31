@@ -6,6 +6,7 @@ import * as React from 'react';
 import { FC } from 'react';
 import { Button } from '@/components/ui/Button';
 import { Icons } from './Icons';
+import toast from 'react-hot-toast';
 
 interface UserAuthFormProps extends React.HTMLAttributes<HTMLDivElement> {}
 
@@ -18,6 +19,7 @@ const UserAuthForm: FC<UserAuthFormProps> = ({ className, ...props }) => {
         try {
             await signIn('google');
         } catch (error) {
+            toast.error(error);
         } finally {
             setIsLoading(false);
         }
