@@ -2,6 +2,8 @@ import { cn } from '@/lib/utils';
 import { Inter } from 'next/font/google';
 import Navbar from '@/components/Navbar';
 import '@/styles/globals.css';
+import { Toaster } from 'react-hot-toast';
+import Providers from '@/components/Providers';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -12,8 +14,10 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
     children,
+    authModal,
 }: {
     children: React.ReactNode;
+    authModal: React.ReactNode;
 }) {
     return (
         <html
@@ -24,10 +28,15 @@ export default function RootLayout({
             )}
         >
             <body className="min-h-screen pt-12 bg-slate-50 antialiased">
-                <Navbar />
-                <div className="container max-w-7xl mx-auto h-full pt-12">
-                    {children}
-                </div>
+                <Providers>
+                    {/* @ts-expect-error server component */}
+                    <Navbar />
+                    {authModal}
+                    <Toaster position="top-center" reverseOrder={false} />
+                    <div className="container max-w-7xl mx-auto h-full pt-12">
+                        {children}
+                    </div>
+                </Providers>
             </body>
         </html>
     );
