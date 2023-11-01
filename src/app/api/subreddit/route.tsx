@@ -33,7 +33,7 @@ export async function POST(req: Request) {
             },
         });
 
-        // creator also has to be subscribed
+        // subscribe creator to his subreddit
         await db.subscription.create({
             data: {
                 userId: session.user.id,
