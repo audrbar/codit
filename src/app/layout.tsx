@@ -27,12 +27,12 @@ export default function RootLayout({
                 inter.className
             )}
         >
-            <body className="min-h-screen pt-12 bg-slate-50 antialiased">
+            <body className="min-h-screen pt-6 bg-slate-50 antialiased">
                 <Providers>
                     {/* @ts-expect-error server component */}
                     <Navbar />
                     {authModal}
-                    <div className="container max-w-7xl mx-auto h-full pt-12">
+                    <div className="container max-w-7xl mx-auto h-full pt-6">
                         {children}
                     </div>
                 </Providers>
