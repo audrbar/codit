@@ -5,20 +5,16 @@ import { PostVoteValidator } from '@/lib/validators/vote'
 import { CachedPost } from '@/types/redis'
 import { z } from 'zod'
 
-const CACHE_AFTER_UPVOTES = 1
+const CACHE_AFTER_UPVOTES = 1;
 
 export async function PATCH(req: Request) {
   try {
-    const body = await req.json()
-
-    const { postId, voteType } = PostVoteValidator.parse(body)
-
-    const session = await getAuthSession()
-
+    const body = await req.json();
+    const { postId, voteType } = PostVoteValidator.parse(body);
+    const session = await getAuthSession();
     if (!session?.user) {
       return new Response('Unauthorized', { status: 401 })
     }
-
     // check if user has already voted on this post
     const existingVote = await db.vote.findFirst({
       where: {
@@ -141,7 +137,7 @@ export async function PATCH(req: Request) {
       await redis.hset(`post:${postId}`, cachePayload) // Store the post data as a hash
     }
 
-    return new Response('OK')
+    return new Response('OK');
   } catch (error) {
     (error)
     if (error instanceof z.ZodError) {
@@ -149,7 +145,7 @@ export async function PATCH(req: Request) {
     }
 
     return new Response(
-      'Could not post to subreddit at this time. Please try later',
+      'Could not post to subcodit at this time. Please try later',
       { status: 500 }
     )
   }
