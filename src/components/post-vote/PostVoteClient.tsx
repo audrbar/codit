@@ -23,15 +23,15 @@ const PostVoteClient = ({
   initialVotesAmt,
   initialVote,
 }: PostVoteClientProps) => {
-  const { loginToast } = useCustomToasts()
-  const [votesAmt, setVotesAmt] = useState<number>(initialVotesAmt)
-  const [currentVote, setCurrentVote] = useState(initialVote)
-  const prevVote = usePrevious(currentVote)
+  const { loginToast } = useCustomToasts();
+  const [votesAmt, setVotesAmt] = useState<number>(initialVotesAmt);
+  const [currentVote, setCurrentVote] = useState(initialVote);
+  const prevVote = usePrevious(currentVote);
 
   // ensure sync with server
   useEffect(() => {
     setCurrentVote(initialVote)
-  }, [initialVote])
+  }, [initialVote]);
 
   const { mutate: vote } = useMutation({
     mutationFn: async (type: VoteType) => {
@@ -75,7 +75,7 @@ const PostVoteClient = ({
           setVotesAmt((prev) => prev - (currentVote ? 2 : 1))
       }
     },
-  })
+  });
 
   return (
     <div className='flex flex-col gap-4 sm:gap-0 pr-6 sm:w-20 pb-4 sm:pb-0'>
@@ -113,7 +113,7 @@ const PostVoteClient = ({
         />
       </Button>
     </div>
-  )
+  );
 }
 
 export default PostVoteClient;
