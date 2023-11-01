@@ -5,4 +5,4 @@ export type ExtendedPost = Post & {
     votes: Vote[]
     author: User
     comments: Comment[]
-}
+};
