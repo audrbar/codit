@@ -14,17 +14,17 @@ import {
   CommandInput,
   CommandItem,
   CommandList,
-} from '@/components/ui/Command'
-import { useOnClickOutside } from '@/hooks/use-on-click-outside'
-import { Users } from 'lucide-react'
+} from '@/components/ui/Command';
+import { useOnClickOutside } from '@/hooks/use-on-click-outside';
+import { Users } from 'lucide-react';
 
-interface SearchBarProps {}
+interface SearchBarProps {};
 
 const SearchBar: FC<SearchBarProps> = ({}) => {
-  const [input, setInput] = useState<string>('')
-  const pathname = usePathname()
-  const commandRef = useRef<HTMLDivElement>(null)
-  const router = useRouter()
+  const [input, setInput] = useState<string>('');
+  const pathname = usePathname();
+  const commandRef = useRef<HTMLDivElement>(null);
+  const router = useRouter();
 
   useOnClickOutside(commandRef, () => {
     setInput('')
@@ -38,7 +38,7 @@ const SearchBar: FC<SearchBarProps> = ({}) => {
     request()
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, []);
 
   const {
     isFetching,
