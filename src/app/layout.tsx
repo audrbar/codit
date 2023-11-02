@@ -4,6 +4,7 @@ import Navbar from '@/components/Navbar';
 import '@/styles/globals.css';
 import { Toaster } from '@/components/ui/Toaster';
 import Providers from '@/components/Providers';
+import type { Metadata } from 'next';
 
 const inter = Inter({ subsets: ['latin'] });
 
