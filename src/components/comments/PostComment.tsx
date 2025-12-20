@@ -3,7 +3,7 @@
 import { useOnClickOutside } from '@/hooks/use-on-click-outside';
 import { formatTimeToNow } from '@/lib/utils';
 import { CommentRequest } from '@/lib/validators/comment';
-import { Comment, CommentVote, User } from '@prisma/client';
+import type { Comment, CommentVote, User } from '@prisma/client';
 import { useMutation } from '@tanstack/react-query';
 import axios from 'axios';
 import { MessageSquare } from 'lucide-react';

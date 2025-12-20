@@ -1,6 +1,6 @@
 'use client';
 
-import { Prisma, Subreddit } from '@prisma/client';
+import type { Prisma, Subreddit } from '@prisma/client';
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 import debounce from 'lodash.debounce';
